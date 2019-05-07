@@ -12,7 +12,7 @@ Base.query = db_session.query_property()
 
 
 class Pessoas(Base):
-    __tablename__='pessoas'
+    __tablename__ = 'pessoas'
     id = Column(Integer, primary_key=True)
     nome = Column(String(40), index=True)
     idade = Column(Integer)
