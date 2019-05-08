@@ -1,8 +1,8 @@
-from models import Pessoas
+from models import Pessoas, Usuarios
 
 
 def insere_pessoas():
-    pessoa = Pessoas(nome='Rafael', idade=99)
+    pessoa = Pessoas(nome='Maluco', idade=99)
     print(pessoa)
     pessoa.save()
 
@@ -10,12 +10,12 @@ def insere_pessoas():
 def consulta_pessoas():
     pessoa = Pessoas.query.all()
     print(pessoa)
-    #pessoa = Pessoas.query.filter_by(nome='Scrooge')
-    #for i in pessoa:
+    # pessoa = Pessoas.query.filter_by(nome='Scrooge')
+    # for i in pessoa:
     #    print(i)
-    #pessoa = Pessoas.query.filter_by(nome='Scrooge').first()
-    #print(pessoa.nome)
-    #print(pessoa.idade)
+    # pessoa = Pessoas.query.filter_by(nome='Scrooge').first()
+    # print(pessoa.nome)
+    # print(pessoa.idade)
 
 
 def altera_pessoa():
@@ -28,8 +28,22 @@ def excluir_pessoa():
     pessoa = Pessoas.query.filter_by(nome='CucaBeludo').first()
     pessoa.delete()
 
+
+def inserir_usuario(login, senha):
+    usuario = Usuarios(login=login, senha=senha)
+    usuario.save()
+
+
+def listar_usuarios():
+    usuarios = Usuarios.query.all()
+    print(usuarios)
+
+
 if __name__ == '__main__':
-    insere_pessoas()
-    #altera_pessoa()
+    inserir_usuario('Aderbal', '123')
+    inserir_usuario('Bederbal', '123')
+    listar_usuarios()
+    # insere_pessoas()
+    # altera_pessoa()
     # excluir_pessoa()
-    consulta_pessoas()
+    # consulta_pessoas()
